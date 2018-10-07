@@ -1,6 +1,6 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM tomcat:9-jre8-alpine
 VOLUME /tmp
-ADD target/WebApp.war app.war
+ADD target/WebApp.war /usr/local/tomcat/webapps/app.war
 RUN sh -c 'touch /app.war'
 ENV JAVA_OPTS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n"
 EXPOSE 8080 8787
