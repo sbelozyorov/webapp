@@ -14,7 +14,7 @@ after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH
   ; fi`
-- export IMAGE_NAME=sbelozyorov/javawebapp
-- docker build -t $IMAGE_NAME:$COMMIT .
-- docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
-- docker push $IMAGE_NAME
+- export sbelozyorov/webapp
+- docker build -t sbelozyorov/webapp .
+- docker tag sbelozyorov/webapp $DOCKER_USER/javawebapp
+- docker push sbelozyorov/webapp
