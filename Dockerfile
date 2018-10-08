@@ -1,11 +1,6 @@
-FROM centos:6
+FROM tomcat:8-jre8
 MAINTAINER sbelozyorov
-RUN yum install -y java-1.8.0-openjdk
-COPY target/WebApp.war /root/webapp-latest.war
-ENV JAVA_OPTS "-server -Xss256k"
-WORKDIR /root/
-EXPOSE 8080
-ENTRYPOINT ["java","-jar","webapp-latest.war"]
+COPY target/WebApp.war /usr/local/tomcat/webapps/webapp-latest.war
 
 #FROM tomcat:9-jre8-alpine
 #VOLUME /tmp
