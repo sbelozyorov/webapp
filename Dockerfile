@@ -5,7 +5,7 @@ COPY target/WebApp.war /root/webapp-latest.war
 ENV JAVA_OPTS "-server -Xss256k"
 WORKDIR /root/
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","spring-boot-in-docker-latest.war"]
+ENTRYPOINT ["java","-jar","webapp-latest.war"]
 
 #FROM tomcat:9-jre8-alpine
 #VOLUME /tmp
