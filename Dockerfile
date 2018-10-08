@@ -34,10 +34,11 @@ RUN set -x \
     && rm bin/*.bat \
     && rm tomcat.tar.gz*
 
-ADD ./target/WebApp.war $CATALINA_HOME/webapps/
+ADD target/WebApp.war $CATALINA_HOME/webapps/app.war
 
 EXPOSE 8080
-#CMD ["catalina.sh", "run"]
+CMD ["catalina.sh", "run"]
+
 #FROM tomcat:9-jre8-alpine
 #VOLUME /tmp
 #ADD target/WebApp.war /usr/local/tomcat/webapps/app.war
