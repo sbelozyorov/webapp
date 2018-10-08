@@ -16,6 +16,22 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>WebApp</finalName>
+	<plugins>
+		<plugin>
+			<!-- Build an executable JAR -->
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jar-plugin</artifactId>
+			<version>2.4</version>
+		        <finalName>WebApp</finalName>
+			
+                        <configuration>
+				<archive>
+					<manifest>
+						<mainClass>com.roufid.tutorials.AppTest</mainClass>
+					</manifest>
+				</archive>
+			</configuration>
+		</plugin>
+	</plugins>
   </build>
 </project>
