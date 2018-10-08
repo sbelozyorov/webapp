@@ -16,10 +16,10 @@
     </dependency>
   </dependencies>
     <build>
-<plugins>
+         <plugins>
             <plugin>
                 <groupId>org.selenide.examples</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
+                <artifactId>maven-war-plugin</artifactId>
                 <version>1.0</version>
                 <configuration>
                   <finalName>WebApp</finalName> 
