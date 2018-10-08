@@ -1,5 +1,6 @@
 FROM java:8-jre
 #https://github.com/docker-library/tomcat
+VOLUME /tmp
 
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
