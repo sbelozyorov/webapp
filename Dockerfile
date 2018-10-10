@@ -16,4 +16,4 @@ ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urando
 # copy application WAR (with libraries inside)
 #COPY /home/travis/build/sbelozyorov/webapp/target/WebApp.war /app.war
 # specify default command
-#CMD ["/usr/bin/java", "-jar", "-Dspring.profiles.active=test", "/app.war"]
+CMD ["/usr/bin/java", "-jar", "-Dspring.profiles.active=test", "/app.war"]
