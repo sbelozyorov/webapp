@@ -18,3 +18,4 @@ after_success:
 - docker build -t sbelozyorov/webapp .
 - docker tag sbelozyorov/webapp $DOCKER_USER/javawebapp
 - docker push sbelozyorov/webapp
+- test "$TRAVIS_BRANCH" = "master" && sh .travis/deploy_heroku.sh
