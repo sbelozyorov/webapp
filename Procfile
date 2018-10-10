@@ -1,1 +1,1 @@
-web: java -jar -Dserver.port=$PORT /usr/local/tomcat/webapps/webapp-latest.war
+web: cd ./deploy/tomcat/bin && export 'JAVA_OPTS=-Dport.http=$PORT' && ./catalina.sh run
