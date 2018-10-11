@@ -10,7 +10,6 @@ EXPOSE 8080
 #ENV JAVA_OPTS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n"
 #EXPOSE 8080 8787
 #ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=docker -jar /app.jar" ]
-#CMD ["java", "--port", "$PORT", "/usr"]
 
 # Base Alpine Linux based image with OpenJDK JRE only
 #FROM openjdk:8-jre-alpine
