@@ -21,6 +21,6 @@ after_success:
 
 deploy:
   provider: script
-  script: bash .travis/deploy.sh
+  script: bash .travis/ecs_deploy.sh
   on:
     branch: master
