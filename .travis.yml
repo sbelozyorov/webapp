@@ -18,4 +18,9 @@ after_success:
 - docker build -t sbelozyorov/webapp .
 - docker tag sbelozyorov/webapp $DOCKER_USER/javawebapp
 - docker push sbelozyorov/webapp
-- test "$TRAVIS_BRANCH" = "master" && sh .travis/deploy_heroku.sh
+- pip install --user awscli
+- export PATH=$PATH:$HOME/.local/bin
+- eval $(aws ecr get-login --no-include-email --region us-west-1)
+- docker build -t sbelozyorov@webapp
+- docker tag sbelozyorov/webapp:latest 434952379752.dkr.ecr.us-west-1.amazonaws.com/sbelozyorov/webapp:latest
+- docker push 434952379752.dkr.ecr.us-west-1.amazonaws.com/sbelozyorov/webapp:latest
