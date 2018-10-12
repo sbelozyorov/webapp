@@ -1,4 +1,7 @@
 #!/bin/bash
+add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get update
 pip install --user awscli
 export PATH=$PATH:$HOME/.local/bin
 
