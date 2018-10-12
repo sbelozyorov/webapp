@@ -18,9 +18,4 @@ after_success:
 - docker build -t sbelozyorov/webapp .
 - docker tag sbelozyorov/webapp $DOCKER_USER/javawebapp
 - docker push sbelozyorov/webapp
-
-deploy:
-  provider: script
-  script: bash .travis/ecs_deploy.sh
-  on:
-    branch: master 
+- bash .travis/ecs_deploy.sh
