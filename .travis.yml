@@ -11,5 +11,16 @@ env:
   - secure: CLCXQ4JY48sHDCk6uy3J27+Y5gDG90QRktHuVoTLo8GKUkEuulzva5tI+3Xdo2mCNGAVVHzQ6E+ZCLeRPMiHHQXdYg6njPyB1AweMZkMWdS020SAFj8rFUQv/+DHaFhQjccx5wDeza5htJqHscFfSSDiGyfDcFElVe6+8BLiPhKiVng04O6de8KVjRpLbg6EwMwpg8GuYFxGK2jHRAerMvWiDYVLsMz4CKFuFPsLr/0voso2flM9HaRvaDN9YL6InugBwppQ68vWypboub72RSlX3UTJbxCbraLtqu6Ap7Mvv2oE1P7sos+7vx9PJte4tO7FvsSGkTfQkeEZaQZsgV0OO7TpNIYg8v0+OYil3m5CbI+VjAoHGDTPVWuwSqa+gTu93YeeiZUM2iPERNz0LXCKVIWIYJ3BLZuftfhmUfvr3wfAYnPoUJc4LYIYuGjdj7kWFej51uATcBQTI9Hs2tVU6ZpPKxzz+UtWFRbp5t/4QiBuxHHhrz4Ygl7pYOek4aWGfVZ76zLCbsVhUxJ47glODRjjXyH875PaxNuPQ8P09X/4ZjEFHtk3s0Wg0KIKVHV/LgcfP1m6qBKJh0gGfwULeMs+bF4fSmQVBWSC1kfQ+WBolS9R+jwV5lV/50A7MU0y0J1uJhRcemjGpHpUUkvONJdvyYBs7e8eBaewdqk=
 
 after_success:
-- bash .travis/docker_push.sh
-- bash .travis/ecs_deploy.sh
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH
+  ; fi`
+- export sbelozyorov/webapp
+- docker build -t sbelozyorov/webapp .
+- docker tag sbelozyorov/webapp $DOCKER_USER/javawebapp
+- docker push sbelozyorov/webapp
+
+deploy:
+  provider: script
+  script: bash .travis/ecs_deploy.sh
+  on:
+    branch: master 
