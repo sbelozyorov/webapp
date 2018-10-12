@@ -1,4 +1,4 @@
-sudo pip install --user awscli
+sudo -H pip install --user awscli
 export PATH=$PATH:$HOME/.local/bin
 
 add-apt-repository ppa:eugenesan/ppa
