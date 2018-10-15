@@ -6,5 +6,4 @@ script:
 - mvn clean package
 
 after_success:
-- bash scripts/docker_push.sh
 - bash scripts/ecs_deploy.sh
