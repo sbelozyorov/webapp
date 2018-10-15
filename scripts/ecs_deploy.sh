@@ -18,4 +18,4 @@ docker tag sbelozyorov/webapp:latest 434952379752.dkr.ecr.us-west-1.amazonaws.co
 docker push 434952379752.dkr.ecr.us-west-1.amazonaws.com/sbelozyorov/webapp:latest
 
 # Deploy application
-ecs-deploy -c $CLUSTER_NAME -n $SERVICE_NAME -i 434952379752.dkr.ecr.us-west-1.amazonaws.com/sbelozyorov/webapp:latest
+#ecs-deploy -c $CLUSTER_NAME -n $SERVICE_NAME -i 434952379752.dkr.ecr.us-west-1.amazonaws.com/sbelozyorov/webapp:latest
