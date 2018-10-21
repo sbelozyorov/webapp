@@ -4,6 +4,9 @@ services:
 language: java
 script:
 - mvn clean package
+before_install: 
+  - mvn compile -DskipTests=true -U
+install: mvn test
 
 after_success:
 - bash scripts/docker_push.sh
